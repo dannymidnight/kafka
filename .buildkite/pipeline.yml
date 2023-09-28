@@ -1,0 +1,7 @@
+steps:
+  - name: Run unit tests
+    command: ./gradlew --build-cache unitTest -PmaxParallelForks=32 -PignoreFailures=true
+    artifact_paths: "**/*.xml"
+    plugins:
+      - docker#v5.8.0:
+          image: "public.ecr.aws/amazoncorretto/amazoncorretto:20"
